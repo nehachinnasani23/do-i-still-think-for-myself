@@ -10,14 +10,12 @@ if (instagramShare) {
     try {
       await navigator.clipboard.writeText(bookUrl);
       if (copyFeedback) {
-        copyFeedback.textContent = "Book link copied for Instagram.";
+        copyFeedback.textContent = "Book link copied. Paste it into your Instagram post, story, or bio.";
       }
     } catch {
       if (copyFeedback) {
         copyFeedback.textContent = "Copy this link: " + bookUrl;
       }
     }
-
-    window.open(instagramShare.href, "_blank", "noopener");
   });
 }
