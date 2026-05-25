@@ -1,5 +1,4 @@
-const instagramShare = document.querySelector("[data-copy-link]");
-const copyFeedback = document.querySelector(".copy-feedback");
+const copyButtons = document.querySelectorAll("[data-copy-link]");
 
 const copyText = async (text) => {
   try {
@@ -19,17 +18,20 @@ const copyText = async (text) => {
   }
 };
 
-if (instagramShare) {
-  instagramShare.addEventListener("click", async (event) => {
+copyButtons.forEach((button) => {
+  button.addEventListener("click", async (event) => {
     event.preventDefault();
 
-    const bookUrl = instagramShare.dataset.copyLink;
+    const bookUrl = button.dataset.copyLink;
+    const feedback = button.dataset.feedbackTarget
+      ? document.querySelector(button.dataset.feedbackTarget)
+      : button.closest("section")?.querySelector(".copy-feedback");
     const copied = await copyText(bookUrl);
 
-    if (copyFeedback) {
-      copyFeedback.textContent = copied
-        ? "Book link copied. Paste it into your Instagram post, story, or bio."
+    if (feedback) {
+      feedback.textContent = copied
+        ? button.dataset.copyMessage || "Book link copied."
         : "Copy this link: " + bookUrl;
     }
   });
-}
+});
