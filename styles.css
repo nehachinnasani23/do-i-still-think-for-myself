@@ -512,8 +512,7 @@ h1 {
   gap: 14px;
 }
 
-.social-card,
-.action-card {
+.social-card {
   position: relative;
   overflow: hidden;
   padding: clamp(16px, 3vw, 24px);
@@ -575,60 +574,6 @@ h1 {
 .social-link:hover img,
 .social-link:focus-visible img {
   transform: translateY(-2px) rotate(-2deg) scale(1.05);
-}
-
-.action-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: center;
-}
-
-.subscribe-card {
-  animation: riseIn 760ms 160ms ease both;
-}
-
-.note-card {
-  animation: riseIn 760ms 230ms ease both;
-}
-
-.action-card::after {
-  position: absolute;
-  right: -30px;
-  bottom: -44px;
-  width: 110px;
-  height: 110px;
-  content: "";
-  border: 1px solid rgba(189, 45, 50, 0.2);
-  border-radius: 999px;
-}
-
-.mini-label {
-  margin: 0 0 7px;
-  color: var(--red-dark);
-  font-size: 0.76rem !important;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.action-card h3 {
-  margin: 0;
-  color: var(--navy);
-  font-size: clamp(1.15rem, 2vw, 1.38rem);
-  line-height: 1.08;
-}
-
-.action-card p:not(.mini-label) {
-  max-width: 42ch;
-  margin: 9px 0 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-}
-
-.action-card .button {
-  position: relative;
-  z-index: 1;
-  min-width: 138px;
 }
 
 .copy-feedback {
@@ -735,14 +680,6 @@ h1 {
 
   .share-section {
     grid-template-columns: 1fr;
-  }
-
-  .action-card {
-    grid-template-columns: 1fr;
-  }
-
-  .action-card .button {
-    width: 100%;
   }
 }
 
